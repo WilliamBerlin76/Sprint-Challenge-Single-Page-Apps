@@ -3,18 +3,16 @@ import CharacterList from "./CharacterList";
 export default function SearchForm(props) {
 // const [displayChar, setDisplayChar] = useState([])
 console.log(props)
- const [name, setName] = useState({
-   name: ''
- })
+ const [search, setSearch] = useState('')
+
  const handleChange = event => {
-   setName({...name, [event.target.name]: event.target.value})
-   props.filterNames(name)
-   console.log(name)
+   setSearch(event.target.value)
+   console.log(search)
  }
   return (
     <section className="search-form">
      <form>
-       <input type="searcn" placeholder="enter name" onChange={handleChange}></input>
+       <input id='name' type="text" placeholder="enter name" onChange={handleChange}></input>
      </form>
     </section>
   );

@@ -6,16 +6,20 @@ import SearchForm from './SearchForm';
 export default function CharacterList() {
   // TODO: Add useState to track data from useEffect
   const [character, setCharacter] = useState([{
-    id: '',
     name: ''
   }]);
-  const filterNames = name => {
-    const nameFilter = {
-      id: name.id,
-      name: name.name
-    }
-    setCharacter([...character, nameFilter])
-  }
+  // useEffect(() => {
+  //   const filterNames = character.filter(char => char.toLowerCase().includes(setSearch));
+  //   setCharacter(filterNames)
+  // }, [setSearch])
+  // const filterNames = char => {
+  //   const nameFilter = {
+  //     // name: char.filter(name => {
+  //     //   name.includes({char})
+  //     name: char.name
+  //   }
+  //   setCharacter([...character, nameFilter])
+  // }
   useEffect(() => {
     // TODO: Add API Request here - must run in `useEffect`
     //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
@@ -35,7 +39,7 @@ export default function CharacterList() {
     <section className="character-list">
       
       <div>
-      <SearchForm filterNames = {filterNames}/>
+      <SearchForm character = {character}/>
         {character.map(item => {
           return <CharacterCard key={item.id} name={item.name}/>
         })}
