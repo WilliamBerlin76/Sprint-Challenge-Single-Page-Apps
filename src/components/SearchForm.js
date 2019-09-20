@@ -1,10 +1,21 @@
 import React, { useState } from "react";
-
-export default function SearchForm() {
- 
+import CharacterList from "./CharacterList";
+export default function SearchForm(props) {
+// const [displayChar, setDisplayChar] = useState([])
+console.log(props)
+ const [name, setName] = useState({
+   name: ''
+ })
+ const handleChange = event => {
+   setName({...name, [event.target.name]: event.target.value})
+   props.filterNames(name)
+   console.log(name)
+ }
   return (
     <section className="search-form">
-     // Add a search form here
+     <form>
+       <input type="searcn" placeholder="enter name" onChange={handleChange}></input>
+     </form>
     </section>
   );
 }
