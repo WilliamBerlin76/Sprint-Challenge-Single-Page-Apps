@@ -1,4 +1,4 @@
-import React, { useState, useEvent, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import CharacterList from "./CharacterList";
 export default function SearchForm(props) {
 // const [displayChar, setDisplayChar] = useState([])
@@ -20,10 +20,13 @@ console.log(props)
      <form>
        <input id='name' type="text" placeholder="enter name" onChange={handleChange} value={search}></input>
      </form>
-     {searchResult.map(character => 
+    { searchResult.length > 1 ? 
+     searchResult.map(character => 
        <h1>{character.name}</h1>
-     )}
-     
+     ):
+     props.character.map(item => {
+          return <p>{item.name}</p>
+        })}
     </section>
   );
 }
