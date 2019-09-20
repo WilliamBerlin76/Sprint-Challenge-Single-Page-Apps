@@ -27,7 +27,7 @@ export default function CharacterList() {
     .get(`https://rickandmortyapi.com/api/character/`)
     .then( response => {
       const people = response.data.results
-      console.log(response)
+      // console.log(response)
       setCharacter(people)
     })
     .catch(error => {
@@ -39,7 +39,7 @@ export default function CharacterList() {
     <section className="character-list">
       
       <div>
-      <SearchForm character = {character}/>
+      <SearchForm character={character}/>
         {character.map(item => {
           return <CharacterCard key={item.id} name={item.name}/>
         })}
