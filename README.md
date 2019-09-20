@@ -27,7 +27,7 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ]  Explain benefit(s) using `client-side routing`?
 
-> Answer:
+> Answer: clietn-side routing reduces load time between pages, and routs users to new pages without refreshing the site, causing a more seamless user experience.
 
 ## Project Set Up
 
@@ -130,3 +130,4 @@ Complete search component to your list views.
 > Note: AFTER Sprint Challenge: Solutions to many stretch goals (and live demo URLs) are available from TLs (or GitHub admins.)
 
 There are many ways to implement each of these requirements!
+William Berlin

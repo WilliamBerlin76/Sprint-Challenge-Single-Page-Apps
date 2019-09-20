@@ -1,10 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import CharacterList from "./CharacterList";
+export default function SearchForm(props) {
+// const [displayChar, setDisplayChar] = useState([])
+console.log(props)
+ const [search, setSearch] = useState('')
+ const [searchResult, setSearchResult] = useState([])
 
-export default function SearchForm() {
- 
+ console.log(props.character)
+ const handleChange = event => {
+   setSearch(event.target.value)
+  //  console.log(search)
+ }
+ useEffect(() => {
+  const results = props.character.filter(character => character.name.toLowerCase().includes(search));
+  setSearchResult(results)
+}, [search])
   return (
     <section className="search-form">
-     // Add a search form here
+     <form>
+       <input id='name' type="text" placeholder="enter name" onChange={handleChange} value={search}></input>
+     </form>
+    { searchResult.length > 1 ? 
+     searchResult.map(character => 
+       <h1>{character.name}</h1>
+     ):
+     props.character.map(item => {
+          return <p>{item.name}</p>
+        })}
     </section>
   );
 }
